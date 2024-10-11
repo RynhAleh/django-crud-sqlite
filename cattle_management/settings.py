@@ -31,8 +31,17 @@ SECRET_KEY = 'qsd7pBzl1d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'ringoleg.site', 'www.ringoleg.site']
-
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    'ringoleg.site',
+    'www.ringoleg.site',
+]
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.ringoleg.site',
+    'https://ringoleg.site',
+]
 
 # Application definition
 
