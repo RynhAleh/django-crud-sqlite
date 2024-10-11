@@ -1,0 +1,23 @@
+/* Стили для каждого типа сообщения */
+.message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.message-error {
+    background-color: #f8d7da; /* Бледно-красный */
+    color: #721c24;
+}
+.message-warning {
+    background-color: #fff3cd; /* Бледно-желтый */
+    color: #856404;
+}
+.message-info {
+    background-color: #d1ecf1; /* Бледно-голубой */
+    color: #0c5460;
+}
+.message-success {
+    background-color: #d4edda; /* Бледно-зеленый */
+    color: #155724;
+}

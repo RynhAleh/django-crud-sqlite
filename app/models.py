@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 
-class Student(models.Model):
+class Cow(models.Model):
     name = models.CharField(max_length=200, null=False)
     identityNumber = models.CharField(max_length=200, null=False)
     address = models.CharField(max_length=200, null=True)
@@ -12,4 +12,4 @@ class Student(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('student_edit', kwargs={'pk': self.pk})
+        return reverse('cow_edit', kwargs={'pk': self.pk})
