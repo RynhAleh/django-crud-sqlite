@@ -10,7 +10,7 @@ if [[ -z "$VIRTUAL_ENV" ]]; then
     # Check if the .venv directory exists
     if [[ ! -d ".venv" ]]; then
         echo "The .venv directory does not exist. Creating a virtual environment..."
-        python -m venv .venv
+        puthon3 -m venv .venv
     else
         echo "The .venv directory already exists."
     fi
@@ -28,8 +28,8 @@ echo "Installing dependencies from requirements.txt..."
 pip install -r requirements.txt
 
 echo "Running migrations..."
-python manage.py makemigrations
-python manage.py migrate
+puthon3 manage.py makemigrations
+puthon3 manage.py migrate
 
 # Start the Django development server
-python manage.py runserver
+puthon3 manage.py runserver
