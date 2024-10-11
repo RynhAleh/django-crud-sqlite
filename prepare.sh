@@ -32,4 +32,4 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 
 # Start the Django development server
-python3 manage.py runserver
+nohup python3 manage.py runserver &
