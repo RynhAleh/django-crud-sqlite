@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {% load static %}
-    <link rel="shortcut icon" href="{% static 'app/favicon.png' %}" type="image/png">
-</head>
-<body>
+{% extends 'app/cow_bar.html' %}
+
+{% block title %}List of Cows{% endblock %}
+
+{% block content %}
 <h1>Cow Delete</h1>
 <form method="post">{% csrf_token %}
     Are you sure you want to delete "{{ object }}" ?
     <input type="submit" value="Submit" />
 </form>
-</body>
-</html>
+{% endblock %}

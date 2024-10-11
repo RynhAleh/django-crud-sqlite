@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/styles.css' %}">
+    <link rel="shortcut icon" href="{% static 'app/favicon.png' %}" type="image/png">
+    <title>Cattle Management</title>
+</head>
+<body>
+<div class="d-flex">
+    <nav class="col-md-2 bg-light sidebar">
+        <h5 class="sidebar-heading">Навигация</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:cow_list' %}">Cow List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:cow_list' %}">Add Cow</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'app:cow_list' %}">Report</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="col-md-10 px-4">
+        <h4>Здесь будет отображаться верхний бар</h4>
+        <hr>
+        {% block content %}
+        <!-- Здесь будет отображаться контент страниц -->
+        {% endblock %}
+    </main>
+</div>
+</body>
+</html>

@@ -46,15 +46,15 @@ class CowDetail(DetailView):
 class CowCreate(CreateView):
     model = Cow
     fields = ['name', 'identityNumber', 'address', 'department']
-    success_url = reverse_lazy('cow_list')
+    success_url = reverse_lazy('app:cow_list')
 
 
 class CowUpdate(UpdateView):
     model = Cow
     fields = ['name', 'identityNumber', 'address', 'department']
-    success_url = reverse_lazy('cow_list')
+    success_url = reverse_lazy('app:cow_list')
 
 
 class CowDelete(DeleteView):
     model = Cow
-    success_url = reverse_lazy('cow_list')
+    success_url = reverse_lazy('app:cow_list')

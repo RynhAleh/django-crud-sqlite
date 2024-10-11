@@ -3,7 +3,6 @@
 ### Django Ignore ###
 __pycache__/
 .venv/
-static/
 .idea
 migrations
 /.env
