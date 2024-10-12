@@ -21,3 +21,43 @@
     background-color: #d4edda; /* Бледно-зеленый */
     color: #155724;
 }
+
+#sidebar {
+	background-color: var(--bs-success);
+	display: block;
+  white-space: nowrap;
+}
+.sidebar-menu-link {
+    padding: .5em 1em;
+  	text-decoration: none;
+}
+.active {
+ 		background-color:#b9d7c0;
+}
+.sidebar-menu-link:hover {
+    background-color:#75b783;
+}
+.sidebar-menu-link.active:hover {
+    background-color:#cee1d2;
+}
+
+.block-link {
+    display: block;
+    text-decoration: none;
+}
+:not(.active) > .block-link {
+    color: lightgrey;
+}
+
+.active > .block-link {
+    color: var (--bs-success);
+}
+
+.each-form {
+		max-width: 400px;
+		margin: 50px auto;
+		padding: 20px;
+		border-radius: 10px;
+		background-color: #f5f5f5;
+		box-shadow: 0px 0px 10px rgb(42 57 42 / 25%);
+}
