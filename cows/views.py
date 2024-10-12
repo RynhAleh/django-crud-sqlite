@@ -16,7 +16,7 @@ class LoginView(View):
     @staticmethod
     def get(request):
         # Отправляем HTML-форму для логина
-        return render(request, 'app/login.html')
+        return render(request, 'cows/login.html')
 
     @staticmethod
     def post(request):
@@ -32,7 +32,7 @@ class LoginView(View):
             return redirect('/')
         # return JsonResponse({'error': 'Invalid credentials'}, status=400)
         messages.error(request, "Неверное имя пользователя или пароль")
-        return render(request, 'app/login.html')
+        return render(request, 'cows/login.html')
 
 
 class CowList(ListView):
@@ -46,15 +46,15 @@ class CowDetail(DetailView):
 class CowCreate(CreateView):
     model = Cow
     fields = ['name', 'identityNumber', 'address', 'department']
-    success_url = reverse_lazy('app:cow_list')
+    success_url = reverse_lazy('cows:cow_list')
 
 
 class CowUpdate(UpdateView):
     model = Cow
     fields = ['name', 'identityNumber', 'address', 'department']
-    success_url = reverse_lazy('app:cow_list')
+    success_url = reverse_lazy('cows:cow_list')
 
 
 class CowDelete(DeleteView):
     model = Cow
-    success_url = reverse_lazy('app:cow_list')
+    success_url = reverse_lazy('cows:cow_list')

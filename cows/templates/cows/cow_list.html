@@ -1,10 +1,10 @@
-{% extends 'app/cow_bar.html' %}
+{% extends 'cows/cow_bar.html' %}
 
 {% block title %}List of Cows{% endblock %}
 
 {% block content %}
 <h1>Cow List</h1>
-<a href="{% url 'app:cow_new' %}">Create New Cow</a><br><br>
+<a href="{% url 'cows:cow_new' %}">Create New Cow</a><br><br>
 <table border="1">
     <tr>
         <th>Name</th>
@@ -16,9 +16,9 @@
         <td>{{ cow.name }}</td>
         <td>{{ cow.identityNumber }}</td>
         <td>
-            <a href="{% url 'app:cow_detail' cow.id %}">Detail</a>
-            <a href="{% url 'app:cow_edit' cow.id %}">Edit</a>
-            <a href="{% url 'app:cow_delete' cow.id %}">Delete</a>
+            <a href="{% url 'cows:cow_detail' cow.id %}">Detail</a>
+            <a href="{% url 'cows:cow_edit' cow.id %}">Edit</a>
+            <a href="{% url 'cows:cow_delete' cow.id %}">Delete</a>
         </td>
     </tr>
     {% empty %}

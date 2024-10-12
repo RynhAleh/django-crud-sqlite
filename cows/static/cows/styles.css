@@ -53,11 +53,14 @@
     color: var (--bs-success);
 }
 
-.each-form {
-		max-width: 400px;
-		margin: 50px auto;
-		padding: 20px;
-		border-radius: 10px;
-		background-color: #f5f5f5;
-		box-shadow: 0px 0px 10px rgb(42 57 42 / 25%);
+.control-form {
+//		background-color: #b9d7c0;
+		padding: 1em;
+}
+
+input, textarea {
+		border: var(--bs-border-width) solid #bcbdbd;
+    border-radius: 3px;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin: 0.2em;
 }

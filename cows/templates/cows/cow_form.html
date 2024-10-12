@@ -1,29 +1,25 @@
-{% extends 'app/cow_bar.html' %}
+{% extends 'cows/cow_bar.html' %}
 
 {% block title %}List of Cows{% endblock %}
 
 {% block content %}
 <h1>Cow Form</h1>
-<form method="POST">{% csrf_token %}
+<form method="POST" class="control-form">{% csrf_token %}
     <table>
         <tr>
             <td>Name</td>
-            <td>:</td>
             <td>{{ form.name }}</td>
         </tr>
         <tr>
             <td>Identity Number</td>
-            <td>:</td>
             <td>{{ form.identityNumber }}</td>
         </tr>
         <tr>
             <td>Department</td>
-            <td>:</td>
             <td>{{ form.department }}</td>
         </tr>
         <tr>
             <td>Address</td>
-            <td>:</td>
             <td>{{ form.address }}</td>
         </tr>
         <tr>

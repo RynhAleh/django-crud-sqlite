@@ -1,0 +1,11 @@
+{% extends 'cows/base.html' %}
+
+{% block title %}Cow Management{% endblock %}
+
+{% block content %}
+Cow Management
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a href="{% url 'cows:cow_list' %}" class="btn btn-secondary">Cow List</a>
+    <a href="{% url 'cows:cow_new' %}" class="btn btn-secondary">Add Cow</a>
+</div>
+{% endblock %}

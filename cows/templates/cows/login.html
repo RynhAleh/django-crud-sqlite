@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'app/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'app/styles.css' %}">
-    <link rel="shortcut icon" href="{% static 'app/favicon.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'cows/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cows/styles.css' %}">
+    <link rel="shortcut icon" href="{% static 'cows/favicon.png' %}" type="image/png">
     <style>
         .login-form {
             max-width: 400px;
@@ -25,7 +25,7 @@
     <h2 class="text-center mt-5 text-success">Вход в систему</h2>
 
     <div class="login-form">
-        <form method="post" action="{% url 'app:login' %}">
+        <form method="post" action="{% url 'cows:login' %}">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="username" class="form-label">Имя пользователя:</label>
