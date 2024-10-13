@@ -4,9 +4,9 @@ from django.urls import reverse
 
 class Cow(models.Model):
     name = models.CharField(max_length=200, null=False)
-    identityNumber = models.CharField(max_length=200, null=False)
-    address = models.CharField(max_length=200, null=True)
-    department = models.CharField(max_length=200, null=True)
+    color = models.CharField(max_length=200, null=False)
+    breed = models.CharField(max_length=200, null=True)
+    features = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name

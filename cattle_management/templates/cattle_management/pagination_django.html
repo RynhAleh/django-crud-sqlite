@@ -1,0 +1,58 @@
+        <div class="row text-center" style="padding-left: 12px;">
+            <div class="pagination">
+                <div class="step-buttons" style="display: flex;">
+                    {% if page_obj.has_previous %}
+                        <form>
+                            <input name="page" type="hidden" value=1>
+                            {% include 'cattle_management/sort_form_fields.html' %}
+                            <button class="pag pag-enable">&lt;&lt;</button>
+                        </form>
+                        <form>
+                            <input name="page" type="hidden" value={{page_obj.previous_page_number}}>
+                            <input name="per" type="hidden" value={{per}}>
+                            {% include 'cattle_management/sort_form_fields.html' %}
+                            {% if srt != '' %}<input name="srt" type="hidden" value="{{srt}}">{% endif %}
+                            <button class="pag pag-enable">&nbsp;&lt;&nbsp;</button>
+                        </form>
+                    {% else %}
+                        <button disabled class="pag pag-disable">&lt;&lt;</button>
+                        <button disabled class="pag pag-disable">&nbsp;&lt;&nbsp;</button>
+                    {% endif %}
+
+                    <div class="current" style="width: 13em; text-align: center;">
+                        Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+                    </div>
+
+                    {% if page_obj.has_next %}
+                        <form>
+                            <input name="page" type="hidden" value={{page_obj.next_page_number}}>
+                            <input name="per" type="hidden" value={{per}}>
+                            {% include 'cattle_management/sort_form_fields.html' %}
+                            {% if srt != '' %}<input name="srt" type="hidden" value="{{srt}}">{% endif %}
+                            <button class="pag pag-enable">&nbsp;&gt;&nbsp;</button>
+                        </form>
+                        <form>
+                            <input name="page" type="hidden" value={{page_obj.paginator.num_pages}}>
+                            <input name="per" type="hidden" value={{per}}>
+                            {% include 'cattle_management/sort_form_fields.html' %}
+                            {% if srt != '' %}<input name="srt" type="hidden" value="{{srt}}">{% endif %}
+                            <button class="pag pag-enable">&gt;&gt;</button>
+                        </form>
+                    {% else %}
+                        <button disabled class="pag pag-disable">&nbsp;&gt;&nbsp;</button>
+                        <button disabled class="pag pag-disable">&gt;&gt;</button>
+                    {% endif %}
+                    <form style="margin-left: 3em;">
+                        {% include 'cattle_management/sort_form_fields.html' %}
+                        {% if srt != '' %}<input name="srt" type="hidden" value="{{srt}}">{% endif %}
+                        <label for="per"> По</label>
+                            <select id="per" name="per" onchange="this.form.submit()" class="pag pag-enable" style="height:25px;">
+                                {% if per == '10' %}<option selected>{% else %}<option>{% endif %}10</option>
+                                {% if per == '20' %}<option selected>{% else %}<option>{% endif %}20</option>
+                                {% if per == '100' %}<option selected>{% else %}<option>{% endif %}100</option>
+                            </select>
+                        <label for="per">записей на стр.</label>
+                    </form>
+                </div>
+            </div>
+        </div>

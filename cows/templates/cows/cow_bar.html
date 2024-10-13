@@ -1,11 +1,10 @@
 {% extends 'cattle_management/base.html' %}
 
-{% block title %}Cow Management{% endblock %}
-
 {% block content %}
-Cow Management
-<div class="btn-group" role="group" aria-label="Basic example">
-    <a href="{% url 'cows:cow_list' %}" class="btn btn-secondary">Cow List</a>
-    <a href="{% url 'cows:cow_new' %}" class="btn btn-secondary">Add Cow</a>
+{{ block.super }}
+<div class="btn-group" role="group">
+    <a href="{% url 'cows:cow_list' %}" class="btn">Список КРС</a>
+    <a href="#" class="btn">Визуализация</a>
+    <a href="#" class="btn">Отчетность</a>
 </div>
 {% endblock %}

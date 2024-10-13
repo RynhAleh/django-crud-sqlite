@@ -3,27 +3,28 @@
 {% block title %}List of Cows{% endblock %}
 
 {% block content %}
-<h1>Cow Form</h1>
+{{ block.super }}
+<h3>Голова КРС - добавление:</h3>
 <form method="POST" class="control-form">{% csrf_token %}
     <table>
         <tr>
-            <td>Name</td>
+            <td>Кличка, инд.номер</td>
             <td>{{ form.name }}</td>
         </tr>
         <tr>
-            <td>Identity Number</td>
-            <td>{{ form.identityNumber }}</td>
+            <td>Цвет, раскрас</td>
+            <td>{{ form.color }}</td>
         </tr>
         <tr>
-            <td>Department</td>
-            <td>{{ form.department }}</td>
+            <td>Порода</td>
+            <td>{{ form.breed }}</td>
         </tr>
         <tr>
-            <td>Address</td>
-            <td>{{ form.address }}</td>
+            <td>Отличительные особенности</td>
+            <td>{{ form.features }}</td>
         </tr>
         <tr>
-            <td><input type="submit" value="Save"></td>
+            <td><input type="submit" value="Сохранить" class="btn btn-success"></td>
         </tr>
     </table>
 </form>

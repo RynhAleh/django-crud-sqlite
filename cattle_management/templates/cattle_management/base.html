@@ -12,24 +12,36 @@
 <body>
 {% with url_app=request.resolver_match.app_name url_name=request.resolver_match.url_name %}
 <div class="d-flex">
-    <nav id="sidebar" class="col-md-2 sidebar vh-100">
+    <nav id="sidebar" class="col-md-1 sidebar vh-100">
         <h3 style="color: darkkhaki; padding-left: 1rem;">КРС 1.0</h3>
         <ul class="nav flex-column">
             <li class="sidebar-menu-link{% if url_app == 'cows' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_list' %}">Cow List</a>
+                <a class="block-link" href="{% url 'cows:cow_list' %}">Стадо</a>
             </li>
             <li class="sidebar-menu-link{% if url_app == 'not_cow' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">Add Cow</a>
+                <a class="block-link" href="{% url 'cows:cow_new' %}">Дойка</a>
             </li>
             <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">More ...</a>
+                <a class="block-link" href="{% url 'cows:cow_new' %}">Осеменение</a>
+            </li>
+            <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
+                <a class="block-link" href="{% url 'cows:cow_new' %}">Замеры</a>
+            </li>
+            <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
+                <a class="block-link" href="{% url 'cows:cow_new' %}">Лечение</a>
+            </li>
+            <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
+                <a class="block-link" href="{% url 'cows:cow_new' %}">Приход</a>
+            </li>
+            <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
+                <a class="block-link" href="{% url 'cows:cow_new' %}">Расход</a>
+            </li>
+            <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
+                <a class="block-link" href="{% url 'cows:cow_new' %}">Справочники</a>
             </li>
         </ul>
     </nav>
-
     <main class="col-md-10 px-4">
-        <h4>Здесь будет отображаться верхний бар</h4>
-        <hr>
         {% block content %}
         <!-- Здесь будет отображаться контент страниц -->
         {% endblock %}

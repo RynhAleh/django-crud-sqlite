@@ -3,9 +3,10 @@
 {% block title %}List of Cows{% endblock %}
 
 {% block content %}
+{{ block.super }}
 <h1>Cow Detail</h1>
-<h3>Name : {{ object.name }}</h3>
-<h3>Identity Number : {{ object.identityNumber }}</h3>
-<h3>Address : {{ object.address }}</h3>
-<h3>Department : {{ object.department }}</h3>
+<h3>Кличка, инд.номер : {{ object.name }}</h3>
+<h3>Цвет, раскрас : {{ object.identityNumber }}</h3>
+<h3>Порода : {{ object.address }}</h3>
+<h3>Отличит.особенности : {{ object.department }}</h3>
 {% endblock %}

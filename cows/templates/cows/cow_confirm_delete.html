@@ -1,11 +1,10 @@
 {% extends 'cows/cow_bar.html' %}
 
-{% block title %}List of Cows{% endblock %}
-
 {% block content %}
-<h1>Cow Delete</h1>
+{{ block.super }}
+<h1>Удаление</h1>
 <form method="post">{% csrf_token %}
-    Are you sure you want to delete "{{ object }}" ?
-    <input type="submit" value="Submit" />
+    Вы уверены, что хотите удалить КРС "{{ object }}" ?
+    <input type="submit" value="Да" />
 </form>
 {% endblock %}
