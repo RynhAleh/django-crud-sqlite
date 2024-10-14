@@ -4,9 +4,10 @@
 
 {% block content %}
 {{ block.super }}
-<h1>Cow Detail</h1>
-<h3>Кличка, инд.номер : {{ object.name }}</h3>
-<h3>Цвет, раскрас : {{ object.identityNumber }}</h3>
-<h3>Порода : {{ object.address }}</h3>
-<h3>Отличит.особенности : {{ object.department }}</h3>
+<hr>
+<h3>КРС - информация</h3>
+<h5>Кличка, инд.номер : {{ object.name }}</h5>
+<h5>Цвет, раскрас : {{ object.color }}</h5>
+<h5>Порода : {{ object.breed }}</h5>
+<h5>Отличит.особенности : {{ object.features }}</h5>
 {% endblock %}

@@ -1,15 +1,13 @@
 {% extends 'cows/cow_bar.html' %}
 
-{% block title %}List of Cows{% endblock %}
-
 {% block content %}
 {{ block.super }}
 <!-- =============== FilterForm =============== -->
 <div class="row">
     <div class="col-12">
-    <form class="filter-decoration">
-        <table style="table-layout: auto; width:100%;">
-            <tbody>
+        <form class="filter-decoration">
+            <table style="table-layout: auto; width:100%;">
+                <tbody>
                 <tr>
                     <td>Кличка, инд.номер:</td>
                     <td>Цвет, окрас:</td>
@@ -25,70 +23,69 @@
                         <input type="hidden" name="srt" value="{{ srt }}">
                         <button class="btn btn-sm btn-outline-success" type="submit">Применить&nbsp;фильтр</button>
                     </td>
-            </tbody>
-        </table>
-    </form>
+                </tbody>
+            </table>
+        </form>
     </div>
 </div>
 <!--TABLE-->
 <div class="row">
     <div class="col-4">
-        <a class="btn btn-outline-success mb-2" href="{% url 'cows:cow_new' %}">
-           Создать запись
-        </a>
+        <a class="btn btn-outline-success mb-2" href="{% url 'cows:cow_create' %}">Создать запись</a>
     </div>
     <div class="col-8 d-flex justify-content-end">
         <span class="text-secondary h5" style="float: right; padding-top: 0.4rem;">
             Записей: {{ page_obj.paginator.count }}
         </span>
     </div>
+    <div class="col-4"></div>
 </div>
 
 <div class="row overflow-auto table-wrap">
     <div class="col-12 nop">
         <table class="table caption-top">
             <thead class="table-dark">
-                <tr>
-                    <th>
-                        <form>
-                            {% include 'cattle_management/sort_form_fields_and_page.html' %}
-                            <input type="hidden" name="srt" value="{% if 'name' not in srt %}-name{% elif srt == '-name' %}name{% else %}id{% endif %}">
-                            <button class="table-head" type="submit" style="width: 200px;">Кличка, инд.номер{% if srt == 'name' %}&nbsp;&#9660;{% elif srt == '-name'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
-                        </form>
-                    </th>
-                    <th>
-                        <form>
-                            {% include 'cattle_management/sort_form_fields_and_page.html' %}
-                            <input type="hidden" name="srt" value="{% if 'color' not in srt %}-color{% elif srt == '-color' %}color{% else %}id{% endif %}">
-                            <button class="table-head" type="submit" style="width: 300px;">Цвет, окрас{% if srt == 'color' %}&nbsp;&#9660;{% elif srt == '-color'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
-                        </form>
-                    </th>
-                    <th>
-                        <form>
-                            {% include 'cattle_management/sort_form_fields_and_page.html' %}
-                            <input type="hidden" name="srt" value="{% if 'breed' not in srt %}-breed{% elif srt == '-breed' %}breed{% else %}id{% endif %}">
-                            <button class="table-head" type="submit" style="width: 300px;">Порода{% if srt == 'breed' %}&nbsp;&#9660;{% elif srt == '-breed'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
-                        </form>
-                    </th>
-                    <th>
-                        <button class="table-head" style="width: 300px;cursor:default">Отлич. особенности</button>
-                    </th>
-                    <th>
-                        <button class="table-head" style="width: 100px;cursor:default"></button>
-                    </th>
-                </tr>
+            <tr>
+                <th>
+                    <form>
+                        {% include 'cattle_management/sort_form_fields_and_page.html' %}
+                        <input type="hidden" name="srt" value="{% if 'name' not in srt %}-name{% elif srt == '-name' %}name{% else %}id{% endif %}">
+                        <button class="table-head" type="submit" style="width: 200px;">Кличка, инд.номер{% if srt == 'name' %}&nbsp;&#9660;{% elif srt == '-name'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                    </form>
+                </th>
+                <th>
+                    <form>
+                        {% include 'cattle_management/sort_form_fields_and_page.html' %}
+                        <input type="hidden" name="srt" value="{% if 'color' not in srt %}-color{% elif srt == '-color' %}color{% else %}id{% endif %}">
+                        <button class="table-head" type="submit" style="width: 300px;">Цвет, окрас{% if srt == 'color' %}&nbsp;&#9660;{% elif srt == '-color'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                    </form>
+                </th>
+                <th>
+                    <form>
+                        {% include 'cattle_management/sort_form_fields_and_page.html' %}
+                        <input type="hidden" name="srt" value="{% if 'breed' not in srt %}-breed{% elif srt == '-breed' %}breed{% else %}id{% endif %}">
+                        <button class="table-head" type="submit" style="width: 300px;">Порода{% if srt == 'breed' %}&nbsp;&#9660;{% elif srt == '-breed'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                    </form>
+                </th>
+                <th>
+                    <button class="table-head" style="width: 300px;cursor:default">Отлич. особенности</button>
+                </th>
+                <th>
+                    <button class="table-head" style="width: 100px;cursor:default"></button>
+                </th>
+            </tr>
             </thead>
 
             <tbody class="text-left">
-                {% for d_o in page_obj %}
-                <tr>
-                    <td class="{% if 'name' in srt %}sorted{% endif %}"><a class="block-link" style="color: #198754;" href="{% url 'cows:cow_edit' d_o.id %}">{{d_o.name}}</a></td>
-                    <td class="{% if 'color' in srt %}sorted{% endif %}">{{d_o.color}}</td>
-                    <td class="{% if 'breed' in srt %}sorted{% endif %}">{{d_o.breed}}</td>
-                    <td>{{d_o.features}}</td>
-                    <td><a class="block-link text-center" style="color: #198754;" href="{% url 'cows:cow_delete' d_o.id %}">[Х]</a></td>
-                </tr>
-                {% endfor %}
+            {% for d_o in page_obj %}
+            <tr>
+                <td class="{% if 'name' in srt %}sorted{% endif %}"><a class="block-link" style="color: #198754;" href="{% url 'cows:cow_detail' d_o.id %}">{{d_o.name}}</a></td>
+                <td class="{% if 'color' in srt %}sorted{% endif %}">{{d_o.color}}</td>
+                <td class="{% if 'breed' in srt %}sorted{% endif %}">{{d_o.breed}}</td>
+                <td>{{d_o.features}}</td>
+                <td><a class="block-link text-center" style="color: #198754;" href="{% url 'cows:cow_delete' d_o.id %}">[Х]</a></td>
+            </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

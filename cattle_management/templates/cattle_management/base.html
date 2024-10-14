@@ -19,25 +19,25 @@
                 <a class="block-link" href="{% url 'cows:cow_list' %}">Стадо</a>
             </li>
             <li class="sidebar-menu-link{% if url_app == 'not_cow' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">Дойка</a>
+                <a class="block-link" href="{% url 'milking:milking_list' %}">Дойка</a>
             </li>
             <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">Осеменение</a>
+                <a class="block-link" href="{% url 'cows:cow_create' %}">Осеменение</a>
             </li>
             <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">Замеры</a>
+                <a class="block-link" href="{% url 'cows:cow_create' %}">Замеры</a>
             </li>
             <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">Лечение</a>
+                <a class="block-link" href="{% url 'cows:cow_create' %}">Лечение</a>
             </li>
             <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">Приход</a>
+                <a class="block-link" href="{% url 'cows:cow_create' %}">Приход</a>
             </li>
             <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">Расход</a>
+                <a class="block-link" href="{% url 'cows:cow_create' %}">Расход</a>
             </li>
-            <li class="sidebar-menu-link{% if url_app == 'not_cows' %} active{% endif %}">
-                <a class="block-link" href="{% url 'cows:cow_new' %}">Справочники</a>
+            <li class="sidebar-menu-link{% if url_app == 'lists' %} active{% endif %}">
+                <a class="block-link" href="{% url 'lists:staff_list' %}">Справочники</a>
             </li>
         </ul>
     </nav>

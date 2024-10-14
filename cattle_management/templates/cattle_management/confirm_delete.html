@@ -1,0 +1,19 @@
+{% extends 'cows/cow_bar.html' %}
+
+{% block content %}
+{{ block.super }}
+<h1>Удаление</h1>
+<form method="post">{% csrf_token %}
+    <input type="hidden" name="previous_url" value="{{ previous_url }}">
+    {{ message.text }}
+    {% if message.error %}
+    <div style="margin-top:2rem; color: red;">
+        {{ message.error }}
+    </div>
+    {% endif %}
+    <div style="margin-top:2rem;">
+        <input type="submit" class="btn btn-danger" value="Удалить"/>
+        <a class="btn btn-outline-success" href="{{ previous_url }}">Отмена</a>
+    </div>
+</form>
+{% endblock %}

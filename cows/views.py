@@ -1,5 +1,4 @@
 from django.views.generic import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Cow
 from .filters import CowFilter
@@ -7,6 +6,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import CowForm
+from django.db.models.deletion import RestrictedError
 
 
 def cow_view(request):
@@ -33,7 +33,7 @@ def cow_view(request):
 
 class CowDetail(DetailView):
     model = Cow
-    success_url = reverse_lazy('cows:cow_list')
+    success_url = reverse_lazy('cows:cow_detail')
 
 
 def cow_create(request):
@@ -64,11 +64,16 @@ def cow_update(request, pk):
 
 def cow_delete(request, pk):
     obj = get_object_or_404(Cow, pk=pk)
+    message = {'text': f'Вы действительно хотите удалить КРС (id {obj.pk} - кличка/номер: {obj.name})?'}
+    previous_url = ''
 
     if request.method == 'POST':
-        obj.delete()
-        previous_url = request.POST.get('previous_url', reverse_lazy('cows:cow_list'))
-        return HttpResponseRedirect(previous_url)
+        try:
+            previous_url = request.POST.get('previous_url', reverse_lazy('cows:cow_list'))
+            obj.delete()
+            return HttpResponseRedirect(previous_url)
+        except RestrictedError:
+            message['error'] = "Невозможно удалить КРС, так как на него ссылаются другие записи!"
+            return render(request, 'cattle_management/confirm_delete.html', {'message': message, 'previous_url': previous_url})
     else:
-        form = {'id': obj.pk, 'name': obj.name}
-        return render(request, 'cows/cow_confirm_delete.html', {'form': form, 'previous_url': request.META.get('HTTP_REFERER', reverse_lazy('cows:cow_list'))})
+        return render(request, 'cattle_management/confirm_delete.html', {'message': message, 'previous_url': request.META.get('HTTP_REFERER', reverse_lazy('cows:cow_list'))})

@@ -1,0 +1,12 @@
+{% extends 'cattle_management/base.html' %}
+
+{% block content %}
+{{ block.super }}
+{% with url_name=request.resolver_match.url_name %}
+<div role="group">
+    <a href="{% url 'lists:staff_list' %}" class="btn{% if url_name == 'staff_list' %} btn-success{% endif %}">Сотрудники</a>
+    <a href="#" class="btn{% if url_name == 'cows' %} btn-success{% endif %}">Боксы</a>
+    <a href="#" class="btn{% if url_name == 'cows' %} btn-success{% endif %}">Сперма</a>
+</div>
+{% endwith %}
+{% endblock %}

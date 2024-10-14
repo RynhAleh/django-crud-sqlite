@@ -1,0 +1,60 @@
+{% extends 'milking/milking_bar.html' %}
+
+{% block content %}
+{{ block.super }}
+<h3>Дойка:</h3>
+<form method="POST" class="control-form">{% csrf_token %}
+    <input type="hidden" name="previous_url" value="{{ previous_url }}">
+    <div class="err">{{ form.non_field_errors }}</div>
+    <table>
+        <tr>
+            <td>Дата-время</td>
+            <td>{{ form.datetime }}</td>
+            <td class="err">{{ form.datetime.errors }}</td>
+        </tr>
+        <tr>
+            <td>ID сотрудн.</td>
+            <td>{{ form.staff_id }}</td>
+            <td class="err">{{ form.staff_id.errors }}</td>
+        </tr>
+        <tr>
+            <td>Надоено всего, л</td>
+            <td>{{ form.milk_amount_total }}</td>
+            <td class="err">{{ form.milk_amount_total.errors }}</td>
+        </tr>
+        <tr>
+            <td>Доилось коров</td>
+            <td>{{ form.cows_milked }}</td>
+            <td class="err">{{ form.cows_milked.errors }}</td>
+        </tr>
+        <tr>
+            <td>в т.ч.экстра</td>
+            <td>{{ form.milk_amount_e }}</td>
+            <td class="err">{{ form.milk_amount_e.errors }}</td>
+        </tr>
+        <tr>
+            <td>в т.ч.в/с</td>
+            <td>{{ form.milk_amount_v }}</td>
+            <td class="err">{{ form.milk_amount_v.errors }}</td>
+        </tr>
+        <tr>
+            <td>в т.ч.1с</td>
+            <td>{{ form.milk_amount_1 }}</td>
+            <td class="err">{{ form.milk_amount_1.errors }}</td>
+        </tr>
+        <tr>
+            <td>Жирн., %</td>
+            <td>{{ form.milk_fat_per }}</td>
+            <td class="err">{{ form.milk_fat_per.errors }}</td>
+        </tr>
+        <tr>
+            <td>Белок, %</td>
+            <td>{{ form.milk_prot_per }}</td>
+            <td class="err">{{ form.milk_prot_per.errors }}</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Сохранить" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'lists/lists_bar.html' %}
+
+{% block content %}
+{{ block.super }}
+<h3>Сотрудник:</h3>
+<form method="POST" class="control-form">{% csrf_token %}
+    <input type="hidden" name="previous_url" value="{{ previous_url }}">
+    <table>
+        <tr>
+            <td>Фамилия</td>
+            <td>{{ form.lastname }}</td>
+        </tr>
+        <tr>
+            <td>Имя</td>
+            <td>{{ form.firstname }}</td>
+        </tr>
+        <tr>
+            <td>Отчество</td>
+            <td>{{ form.patronymic }}</td>
+        </tr>
+        <tr>
+            <td>Должность</td>
+            <td>{{ form.post }}</td>
+        </tr>
+        <tr>
+            <td>Работает?</td>
+            <td>{{ form.works }}</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Сохранить" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'lists/lists_bar.html' %}
+
+{% block content %}
+{{ block.super }}
+<!-- =============== FilterForm =============== -->
+<div class="row">
+    <div class="col-6">
+        <form class="filter-decoration">
+            <table style="table-layout: auto; width:100%;">
+                <tbody>
+                <tr>
+                    <td>Фамилия:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>{{ form.lastname }}</td>
+                    <td>
+                        <input type="hidden" name="per" value="{{ per }}">
+                        <input type="hidden" name="srt" value="{{ srt }}">
+                        <button class="btn btn-sm btn-outline-success" type="submit">Применить&nbsp;фильтр</button>
+                    </td>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <div class="col-6"></div>
+</div>
+<!--TABLE-->
+<div class="row">
+    <div class="col-4">
+        <a class="btn btn-outline-success mb-2" href="{% url 'lists:staff_create' %}">Создать запись</a>
+    </div>
+    <div class="col-4 d-flex justify-content-end">
+        <span class="text-secondary h5" style="float: right; padding-top: 0.4rem;">
+            Записей: {{ page_obj.paginator.count }}
+        </span>
+    </div>
+    <div class="col-4"></div>
+
+</div>
+
+<div class="row overflow-auto table-wrap">
+    <div class="col-8 nop">
+        <table class="table caption-top">
+            <thead class="table-dark">
+            <tr>
+                <th>
+                    <form>
+                        {% include 'cattle_management/sort_form_fields_and_page.html' %}
+                        <input type="hidden" name="srt" value="{% if 'lastname' not in srt %}-lastname{% elif srt == '-lastname' %}lastname{% else %}id{% endif %}">
+                        <button class="table-head" type="submit" style="width: 70px;">Фамилия{% if srt == 'lastname' %}&nbsp;&#9660;{% elif srt == '-lastname'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                    </form>
+                </th>
+                <th>
+                    <form>
+                        {% include 'cattle_management/sort_form_fields_and_page.html' %}
+                        <input type="hidden" name="srt" value="{% if 'firstname' not in srt %}-firstname{% elif srt == '-firstname' %}firstname{% else %}id{% endif %}">
+                        <button class="table-head" type="submit" style="width: 70px;">Имя{% if srt == 'firstname' %}&nbsp;&#9660;{% elif srt == '-firstname'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                    </form>
+                </th>
+                <th>
+                    <form>
+                        {% include 'cattle_management/sort_form_fields_and_page.html' %}
+                        <input type="hidden" name="srt" value="{% if 'patronymic' not in srt %}-patronymic{% elif srt == '-patronymic' %}patronymic{% else %}id{% endif %}">
+                        <button class="table-head" type="submit" style="width: 70px;">Отчество{% if srt == 'patronymic' %}&nbsp;&#9660;{% elif srt == '-patronymic'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                    </form>
+                </th>
+                <th>
+                    <form>
+                        {% include 'cattle_management/sort_form_fields_and_page.html' %}
+                        <input type="hidden" name="srt" value="{% if 'post' not in srt %}-post{% elif srt == '-post' %}post{% else %}id{% endif %}">
+                        <button class="table-head" type="submit" style="width: 70px;">Должность{% if srt == 'post' %}&nbsp;&#9660;{% elif srt == '-post'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                    </form>
+                </th>
+                <th>
+                    <form>
+                        {% include 'cattle_management/sort_form_fields_and_page.html' %}
+                        <input type="hidden" name="srt" value="{% if 'works' not in srt %}-works{% elif srt == '-works' %}works{% else %}id{% endif %}">
+                        <button class="table-head" type="submit" style="width: 40px;">Работает?{% if srt == 'works' %}&nbsp;&#9660;{% elif srt == '-works'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                    </form>
+                </th>
+                <th></th>
+
+            </tr>
+            </thead>
+
+            <tbody class="text-left">
+            {% for d_o in page_obj %}
+            <tr>
+                <td class="{% if 'lastname' in srt %}sorted{% endif %}"><a class="block-link" style="color: #198754;" href="{% url 'lists:staff_edit' d_o.id %}">{{d_o.lastname}}</a></td>
+                <td class="{% if 'firstname' in srt %}sorted{% endif %}">{{d_o.firstname}}</td>
+                <td class="{% if 'patronymic' in srt %}sorted{% endif %}">{{d_o.patronymic}}</td>
+                <td class="{% if 'post' in srt %}sorted{% endif %}">{{d_o.post}}</td>
+                <td class="{% if 'works' in srt %}sorted{% endif %}">{{d_o.works}}</td>
+                <td><a class="block-link text-center" style="color: #198754;" href="{% url 'lists:staff_delete' d_o.id %}">[Х]</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+<div class="row">
+    <div class="col-10">
+        <!-- ===================== PAGINATION =====================  -->
+        {% include 'cattle_management/pagination_django.html' %}
+    </div>
+    <div class="col-2"></div>
+</div>
+
+{% endblock %}

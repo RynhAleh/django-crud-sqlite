@@ -85,7 +85,7 @@ input, textarea {
     border-radius: 5px;
     padding: 5px 5px 10px 5px;
     margin: 5px 0 7px 0;
-    background-color: #eef8ec;
+    background-color: #f8f7ec; //#eef8ec;
 }
 
 .filter-field {
@@ -109,4 +109,7 @@ input, textarea {
 }
 .sorted{
     background-color: #eef2f5/*#f3f3f3*/ !important; /* because after defining the style by bootstrap */
+}
+.err{
+		color:red;
 }

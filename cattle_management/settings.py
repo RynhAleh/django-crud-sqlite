@@ -53,7 +53,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_tables2',
-    'cows'
+    'cows',
+    'lists',
+    'milking',
 ]
 
 MIDDLEWARE = [
