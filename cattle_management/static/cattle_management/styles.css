@@ -85,15 +85,20 @@ input, textarea {
     border-radius: 5px;
     padding: 5px 5px 10px 5px;
     margin: 5px 0 7px 0;
-    background-color: #eef8ec
+    background-color: #eef8ec;
+}
+
+.filter-field {
+    width:95%
 }
 
 .table-dark {
-    --bs-table-bg: #d6efdc;
+    --bs-table-bg: #daefd6; //#d6efdc;
+    border-color: lightgrey;
 }
 
 .table-head {
-    height: 45px;
+    height: 15px;
     border: none;
     background-color: inherit;
     color: black;

@@ -10,7 +10,6 @@ from django.contrib import messages
 class LoginView(View):
     @staticmethod
     def get(request):
-        # Отправляем HTML-форму для логина
         return render(request, 'cattle_management/login.html')
 
     @staticmethod
@@ -25,7 +24,5 @@ class LoginView(View):
             }, settings.SECRET_KEY, algorithm='HS256')
             request.session['token'] = token
             return redirect('/')
-        # return JsonResponse({'error': 'Invalid credentials'}, status=400)
         messages.error(request, "Неверное имя пользователя или пароль")
         return render(request, 'cattle_management/login.html')
-

@@ -10,7 +10,7 @@
     <title>Cattle Management</title>
 </head>
 <body>
-{% with url_app=request.resolver_match.app_name url_name=request.resolver_match.url_name %}
+{% with url_app=request.resolver_match.app_name %}
 <div class="d-flex">
     <nav id="sidebar" class="col-md-1 sidebar vh-100">
         <h3 style="color: darkkhaki; padding-left: 1rem;">КРС 1.0</h3>
@@ -41,7 +41,7 @@
             </li>
         </ul>
     </nav>
-    <main class="col-md-10 px-4">
+    <main class="col-md-10 px-4 ">
         {% block content %}
         <!-- Здесь будет отображаться контент страниц -->
         {% endblock %}

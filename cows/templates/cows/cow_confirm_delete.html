@@ -4,7 +4,8 @@
 {{ block.super }}
 <h1>Удаление</h1>
 <form method="post">{% csrf_token %}
-    Вы уверены, что хотите удалить КРС "{{ object }}" ?
-    <input type="submit" value="Да" />
+    <input type="hidden" name="previous_url" value="{{ previous_url }}">
+    Вы уверены, что хотите удалить КРС "{{ form.id }} - {{ form.name }}" ?
+    <input type="submit" class="btn btn-danger" value="Да"/>
 </form>
 {% endblock %}

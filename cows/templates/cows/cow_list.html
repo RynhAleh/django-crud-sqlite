@@ -6,58 +6,47 @@
 {{ block.super }}
 <!-- =============== FilterForm =============== -->
 <div class="row">
-    <div class="col-10">
-        <form class="filter-decoration">
-            {{ form.non_field_errors }}
-            <table style="width: 100%">
+    <div class="col-12">
+    <form class="filter-decoration">
+        <table style="table-layout: auto; width:100%;">
+            <tbody>
                 <tr>
-                    <td style="padding:0 20px 0 0; width: 30%;">
-                        <div class="save_forms">
-                        {{ form.name.errors }}
-                        <label>Кличка, инд.номер:</label>
-                        {{ form.name }}
-                        </div>
-                    </td>
-                    <td style="padding:0 20px 0 0; width: 30%;">
-                        <div class="save_forms">
-                        {{ form.color.errors }}
-                        <label>Цвет, окрас:</label>
-                        {{ form.color }}
-                        </div>
-                    </td>
-                    <td style="padding:0 20px 0 0; width: 30%;">
-                        <div class="save_forms">
-                        {{ form.breed.errors }}
-                        <label>Порода:</label>
-                        {{ form.breed }}
-                        </div>
-                    </td>
-                    <td style="padding:0 20px 0 0; width: 2%;">
-                        <input type="hidden" name="per" value={{per}}>
-                        <input type="hidden" name="srt" value={{srt}}>
-                        <button class="btn btn-success mt-4" type="submit">Применить&nbsp;фильтр</button>
-                    </td>
+                    <td>Кличка, инд.номер:</td>
+                    <td>Цвет, окрас:</td>
+                    <td>Порода:</td>
+                    <td></td>
                 </tr>
-            </table>
-        </form>
+                <tr>
+                    <td>{{ form.name }}</td>
+                    <td>{{ form.color }}</td>
+                    <td>{{ form.breed }}</td>
+                    <td>
+                        <input type="hidden" name="per" value="{{ per }}">
+                        <input type="hidden" name="srt" value="{{ srt }}">
+                        <button class="btn btn-sm btn-outline-success" type="submit">Применить&nbsp;фильтр</button>
+                    </td>
+            </tbody>
+        </table>
+    </form>
     </div>
-    <div class="col-1"></div>
 </div>
 <!--TABLE-->
 <div class="row">
-    <div class="col-1"></div>
-    <div class="col-3"></div>
-    <div class="col-7 d-flex justify-content-end">
+    <div class="col-4">
+        <a class="btn btn-outline-success mb-2" href="{% url 'cows:cow_new' %}">
+           Создать запись
+        </a>
+    </div>
+    <div class="col-8 d-flex justify-content-end">
         <span class="text-secondary h5" style="float: right; padding-top: 0.4rem;">
             Записей: {{ page_obj.paginator.count }}
         </span>
     </div>
-    <div class="col-1"></div>
 </div>
 
 <div class="row overflow-auto table-wrap">
-    <div class="col-10 nop">
-        <table class="table table-hover caption-top">
+    <div class="col-12 nop">
+        <table class="table caption-top">
             <thead class="table-dark">
                 <tr>
                     <th>
@@ -84,6 +73,9 @@
                     <th>
                         <button class="table-head" style="width: 300px;cursor:default">Отлич. особенности</button>
                     </th>
+                    <th>
+                        <button class="table-head" style="width: 100px;cursor:default"></button>
+                    </th>
                 </tr>
             </thead>
 
@@ -93,22 +85,22 @@
                     <td class="{% if 'name' in srt %}sorted{% endif %}"><a class="block-link" style="color: #198754;" href="{% url 'cows:cow_edit' d_o.id %}">{{d_o.name}}</a></td>
                     <td class="{% if 'color' in srt %}sorted{% endif %}">{{d_o.color}}</td>
                     <td class="{% if 'breed' in srt %}sorted{% endif %}">{{d_o.breed}}</td>
-                    <td class="{% if 'features' in srt %}sorted{% endif %}">{{d_o.features}}</td>
+                    <td>{{d_o.features}}</td>
+                    <td><a class="block-link text-center" style="color: #198754;" href="{% url 'cows:cow_delete' d_o.id %}">[Х]</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    <div class="col-1"></div>
+
 </div>
 
 <div class="row">
-    <div class="col-1"></div>
     <div class="col-10">
         <!-- ===================== PAGINATION =====================  -->
         {% include 'cattle_management/pagination_django.html' %}
     </div>
-    <div class="col-1"></div>
+    <div class="col-2"></div>
 </div>
 
 {% endblock %}

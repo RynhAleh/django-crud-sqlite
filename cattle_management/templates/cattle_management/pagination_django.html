@@ -4,7 +4,9 @@
                     {% if page_obj.has_previous %}
                         <form>
                             <input name="page" type="hidden" value=1>
+                            <input name="per" type="hidden" value={{per}}>
                             {% include 'cattle_management/sort_form_fields.html' %}
+                            {% if srt != '' %}<input name="srt" type="hidden" value="{{srt}}">{% endif %}
                             <button class="pag pag-enable">&lt;&lt;</button>
                         </form>
                         <form>
