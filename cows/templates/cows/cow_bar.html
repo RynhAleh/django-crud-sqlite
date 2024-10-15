@@ -3,7 +3,7 @@
 {% block content %}
 {{ block.super }}
 {% with url_name=request.resolver_match.url_name %}
-<div role="group" class="bar">
+<div role="group" class="bar" data-turbolinks-permanent>
     <a href="{% url 'cows:cow_list' %}" class="btn{% if url_name == 'cow_list' %} btn-success{% endif %}">Список КРС</a>
     <a href="#" class="btn{% if url_name == 'cows' %} btn-success{% endif %}">Визуализация</a>
     <a href="#" class="btn{% if url_name == 'cows' %} btn-success{% endif %}">Отчетность</a>
