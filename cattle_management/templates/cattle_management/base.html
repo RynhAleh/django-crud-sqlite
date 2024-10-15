@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{% static 'cattle_management/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'cattle_management/styles.css' %}">
     <link rel="shortcut icon" href="{% static 'cattle_management/favicon.png' %}" type="image/png">
+    <script src="{% static 'cattle_management/turbolinks.js' %}"></script>
+    <script>
+        Turbolinks.start();
+    </script>
     <title>Cattle Management</title>
 </head>
 <body>
@@ -48,9 +52,5 @@
     </main>
 </div>
 {% endwith %}
-<script src="{% static 'js/turbolinks.js' %}"></script>
-<script>
-    Turbolinks.start();
-</script>
 </body>
 </html>

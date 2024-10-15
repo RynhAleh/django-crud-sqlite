@@ -110,6 +110,7 @@ input, textarea {
     font-size: 1.2em;
     padding: 0;
 }
+
 .sorted {
     background-color: #eef2f5/*#f3f3f3*/ !important; /* because after defining the style by bootstrap */
 }
