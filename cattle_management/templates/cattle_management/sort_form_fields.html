@@ -1,4 +1,14 @@
+<!-- here are filtered fields (so as keep filter while sorted) -->
+<!-- cows -->
 {% if name != '' %}<input name="name" type="hidden" value="{{name}}">{% endif %}
 {% if color != '' %}<input name="color" type="hidden" value="{{color}}">{% endif %}
 {% if breed != '' %}<input name="breed" type="hidden" value="{{breed}}">{% endif %}
 {% if features != '' %}<input name="features" type="hidden" value="{{features}}">{% endif %}
+<!-- milking -->
+{% if datetime != '' %}<input name="datetime" type="hidden" value="{{datetime}}">{% endif %}
+{% if staff_id != '' %}<input name="staff_id" type="hidden" value="{{staff_id}}">{% endif %}
+{% if milk_amount_total != '' %}<input name="milk_amount_total" type="hidden" value="{{milk_amount_total}}">{% endif %}
+{% if cows_milked != '' %}<input name="cows_milked" type="hidden" value="{{cows_milked}}">{% endif %}
+<!-- lists -->
+{% if lastname != '' %}<input name="lastname" type="hidden" value="{{lastname}}">{% endif %}
+
