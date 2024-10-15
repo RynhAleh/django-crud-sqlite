@@ -9,6 +9,10 @@
     <link rel="shortcut icon" href="{% static 'cattle_management/favicon.png' %}" type="image/png">
     <title>Cattle Management</title>
 </head>
+<script src="{% static 'js/turbolinks.js' %}"></script>
+<script>
+    Turbolinks.start();
+</script>
 <body>
 {% with url_app=request.resolver_match.app_name %}
 <div class="d-flex">
@@ -48,9 +52,5 @@
     </main>
 </div>
 {% endwith %}
-<script src="{% static 'js/turbolinks.js' %}"></script>
-<script>
-    Turbolinks.start();
-</script>
 </body>
 </html>
