@@ -26,3 +26,8 @@ class LoginView(View):
             return redirect('/')
         messages.error(request, "Неверное имя пользователя или пароль")
         return render(request, 'cattle_management/login.html')
+
+
+def debug_status(request):
+    from django.http import JsonResponse
+    return JsonResponse({'DEBUG': settings.DEBUG})
