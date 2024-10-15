@@ -41,8 +41,6 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://www.ringoleg.site',
     'https://ringoleg.site',
-    'http://www.ringoleg.site',  # redirect to https on nginx level
-    'http://ringoleg.site',  # redirect to https on nginx level
 ]
 
 # Application definition
