@@ -6,6 +6,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import MilkingForm
 from django.db.models.deletion import RestrictedError
+from cattle_management.settings import ROWS_PER_PAGE
 
 
 def milking_view(request):
@@ -16,7 +17,7 @@ def milking_view(request):
         "cows_milked": request.GET.get("cows_milked", ""),
         "srt": request.GET.get("srt", "id"),
         "page": request.GET.get("page", "1"),
-        "per": request.GET.get("per", "10"),
+        "per": request.GET.get("per", str(ROWS_PER_PAGE)),
     }
     query_list = Milking.objects.order_by(dic["srt"])
     paginator = Paginator(query_list, per_page=dic["per"])

@@ -144,3 +144,4 @@ DATABASES = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+ROWS_PER_PAGE = '20'

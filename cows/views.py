@@ -7,6 +7,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import CowForm
 from django.db.models.deletion import RestrictedError
+from cattle_management.settings import ROWS_PER_PAGE
 
 
 def cow_view(request):
@@ -17,7 +18,7 @@ def cow_view(request):
         "features": request.GET.get("features", ""),
         "srt": request.GET.get("srt", "id"),
         "page": request.GET.get("page", "1"),
-        "per": request.GET.get("per", "10"),
+        "per": request.GET.get("per", str(ROWS_PER_PAGE)),
     }
     query_list = Cow.objects.order_by(dic["srt"])
     obj_filter = CowFilter(request.GET, queryset=query_list)

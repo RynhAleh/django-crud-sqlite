@@ -7,6 +7,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .forms import StaffForm
 from django.db.models.deletion import RestrictedError
+from cattle_management.settings import ROWS_PER_PAGE
 
 
 def staff_view(request):
@@ -14,7 +15,7 @@ def staff_view(request):
         "lastname": request.GET.get("name", ""),
         "srt": request.GET.get("srt", "id"),
         "page": request.GET.get("page", "1"),
-        "per": request.GET.get("per", "10"),
+        "per": request.GET.get("per", str(ROWS_PER_PAGE)),
     }
     query_list = Staff.objects.order_by(dic["srt"])
     obj_filter = StaffFilter(request.GET, queryset=query_list)
