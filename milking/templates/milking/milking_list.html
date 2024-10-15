@@ -25,44 +25,44 @@
                     <form>
                         {% include 'cattle_management/sort_form_fields_and_page.html' %}
                         <input type="hidden" name="srt" value="{% if 'datetime' not in srt %}-datetime{% elif srt == '-datetime' %}datetime{% else %}id{% endif %}">
-                        <button class="table-head" type="submit" style="width: 100px;">Дата-время{% if srt == 'datetime' %}&nbsp;&#9660;{% elif srt == '-datetime'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                        <button class="table-head" type="submit" style="width: 200px;">Дата-время{% if srt == 'datetime' %}&nbsp;&#9660;{% elif srt == '-datetime'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
                     </form>
                 </th>
                 <th>
                     <form>
                         {% include 'cattle_management/sort_form_fields_and_page.html' %}
                         <input type="hidden" name="srt" value="{% if 'staff_id' not in srt %}-staff_id{% elif srt == '-staff_id' %}staff_id{% else %}id{% endif %}">
-                        <button class="table-head" type="submit" style="width: 50px;">Код сотрудн.{% if srt == 'staff_id' %}&nbsp;&#9660;{% elif srt == '-staff_id'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                        <button class="table-head" type="submit" style="width: 200px;">Сотрудник{% if srt == 'staff_id' %}&nbsp;&#9660;{% elif srt == '-staff_id'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
                     </form>
                 </th>
                 <th>
                     <form>
                         {% include 'cattle_management/sort_form_fields_and_page.html' %}
                         <input type="hidden" name="srt" value="{% if 'milk_amount_total' not in srt %}-milk_amount_total{% elif srt == '-milk_amount_total' %}milk_amount_total{% else %}id{% endif %}">
-                        <button class="table-head" type="submit" style="width: 50px;">Надоено всего, л{% if srt == 'milk_amount_total' %}&nbsp;&#9660;{% elif srt == '-milk_amount_total'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                        <button class="table-head" type="submit" style="width: 100px;">Надоено всего, л{% if srt == 'milk_amount_total' %}&nbsp;&#9660;{% elif srt == '-milk_amount_total'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
                     </form>
                 </th>
                 <th>
                     <form>
                         {% include 'cattle_management/sort_form_fields_and_page.html' %}
                         <input type="hidden" name="srt" value="{% if 'cows_milked' not in srt %}-cows_milked{% elif srt == '-cows_milked' %}cows_milked{% else %}id{% endif %}">
-                        <button class="table-head" type="submit" style="width: 50px;">Доилось коров{% if srt == 'cows_milked' %}&nbsp;&#9660;{% elif srt == '-cows_milked'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                        <button class="table-head" type="submit" style="width: 100px;">Доилось коров{% if srt == 'cows_milked' %}&nbsp;&#9660;{% elif srt == '-cows_milked'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
                     </form>
                 </th>
                 <th>
-                    <button class="table-head" style="width: 50px;cursor:default">в т.ч.экстра</button>
+                    <button class="table-head" style="width: 100px;cursor:default">в т.ч.экстра</button>
                 </th>
                 <th>
-                    <button class="table-head" style="width: 50px;cursor:default">в т.ч.в/с</button>
+                    <button class="table-head" style="width: 100px;cursor:default">в т.ч.в/с</button>
                 </th>
                 <th>
-                    <button class="table-head" style="width: 50px;cursor:default">в т.ч.1с</button>
+                    <button class="table-head" style="width: 100px;cursor:default">в т.ч.1с</button>
                 </th>
                 <th>
-                    <button class="table-head" style="width: 50px;cursor:default">Жирн.,%</button>
+                    <button class="table-head" style="width: 100px;cursor:default">Жирн.,%</button>
                 </th>
                 <th>
-                    <button class="table-head" style="width: 50px;cursor:default">Белок,%</button>
+                    <button class="table-head" style="width: 100px;cursor:default">Белок,%</button>
                 </th>
                 <th>
                 </th>
