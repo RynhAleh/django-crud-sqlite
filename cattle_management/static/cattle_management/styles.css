@@ -1,3 +1,5 @@
+
+
 /* Стили для каждого типа сообщения */
 .message {
     padding: 10px;
@@ -31,6 +33,7 @@
 .sidebar-menu-link {
     padding: .5em 1em;
   	text-decoration: none;
+  	font-weight: 500;
 }
 .active {
  		background-color:#b9d7c0;
@@ -84,8 +87,8 @@ input, textarea {
     border: 1px solid #d2d2d2;
     border-radius: 5px;
     padding: 5px 5px 10px 5px;
-    margin: 5px 0 7px 0;
-    background-color: #f8f7ec; //#eef8ec;
+    margin-bottom: 5px;
+    background-color: var(--bs-gray-100);//#f8f7ec; //#eef8ec;
 }
 
 .filter-field {
@@ -93,23 +96,26 @@ input, textarea {
 }
 
 .table-dark {
-    --bs-table-bg: #daefd6; //#d6efdc;
-    border-color: lightgrey;
+    --bs-table-bg: #198754; //#daefd6; //#d6efdc;
+    border-color: var(--bs-table-bg);
 }
 
 .table-head {
     height: 15px;
     border: none;
     background-color: inherit;
-    color: black;
-    text-align: center;
+    color: white;//black;
+    text-align: left;
     font-weight: 300;
     font-size: 1.2em;
     padding: 0;
 }
-.sorted{
+.sorted {
     background-color: #eef2f5/*#f3f3f3*/ !important; /* because after defining the style by bootstrap */
 }
-.err{
+.err {
 		color:red;
+}
+.bar {
+		margin-bottom: 5px;
 }

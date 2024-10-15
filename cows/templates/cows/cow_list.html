@@ -79,7 +79,7 @@
             <tbody class="text-left">
             {% for d_o in page_obj %}
             <tr>
-                <td class="{% if 'name' in srt %}sorted{% endif %}"><a class="block-link" style="color: #198754;" href="{% url 'cows:cow_detail' d_o.id %}">{{d_o.name}}</a></td>
+                <td class="{% if 'name' in srt %}sorted{% endif %}"><a class="block-link" style="color: #198754;" href="{% url 'cows:cow_edit' d_o.id %}">{{d_o.name}}</a></td>
                 <td class="{% if 'color' in srt %}sorted{% endif %}">{{d_o.color}}</td>
                 <td class="{% if 'breed' in srt %}sorted{% endif %}">{{d_o.breed}}</td>
                 <td>{{d_o.features}}</td>
