@@ -15,7 +15,7 @@ def milking_view(request):
         "staff_id": request.GET.get("staff_id", ""),
         "milk_amount_total": request.GET.get("milk_amount_total", ""),
         "cows_milked": request.GET.get("cows_milked", ""),
-        "srt": request.GET.get("srt", "id"),
+        "srt": request.GET.get("srt", "-datetime"),
         "page": request.GET.get("page", "1"),
         "per": request.GET.get("per", str(ROWS_PER_PAGE)),
     }
