@@ -35,37 +35,37 @@
                         <button class="table-head" type="submit" style="width: 200px;">Сотрудник{% if srt == 'staff_id' %}&nbsp;&#9660;{% elif srt == '-staff_id'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
                     </form>
                 </th>
-                <th>
+                <th style="text-align: end">
                     <form>
                         {% include 'cattle_management/sort_form_fields_and_page.html' %}
                         <input type="hidden" name="srt" value="{% if 'milk_amount_total' not in srt %}-milk_amount_total{% elif srt == '-milk_amount_total' %}milk_amount_total{% else %}id{% endif %}">
-                        <button class="table-head" type="submit" style="width: 100px;">Надоено всего, л{% if srt == 'milk_amount_total' %}&nbsp;&#9660;{% elif srt == '-milk_amount_total'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                        <button class="table-head text-end" type="submit" style="width: 100px;">Надоено всего, л{% if srt == 'milk_amount_total' %}&nbsp;&#9660;{% elif srt == '-milk_amount_total'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
                     </form>
                 </th>
-                <th>
+                <th style="text-align: end">
                     <form>
                         {% include 'cattle_management/sort_form_fields_and_page.html' %}
                         <input type="hidden" name="srt" value="{% if 'cows_milked' not in srt %}-cows_milked{% elif srt == '-cows_milked' %}cows_milked{% else %}id{% endif %}">
-                        <button class="table-head" type="submit" style="width: 100px;">Доилось коров{% if srt == 'cows_milked' %}&nbsp;&#9660;{% elif srt == '-cows_milked'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
+                        <button class="table-head text-end" type="submit" style="width: 90px;">Доилось коров{% if srt == 'cows_milked' %}&nbsp;&#9660;{% elif srt == '-cows_milked'%}&nbsp;&#9650;{% else %}&nbsp;&#8597;{% endif %}</button>
                     </form>
                 </th>
+                <th style="text-align: end">
+                    <button class="table-head text-end" style="width: 90px;cursor:default">в т.ч. Экстра</button>
+                </th>
+                <th style="text-align: end">
+                    <button class="table-head text-end" style="width: 90px;cursor:default">в т.ч. В.сорт</button>
+                </th>
+                <th style="text-align: end">
+                    <button class="table-head text-end" style="width: 90px;cursor:default">в т.ч. 1сорт</button>
+                </th>
+                <th style="width: 50px"></th>
                 <th>
-                    <button class="table-head" style="width: 100px;cursor:default">в т.ч.экстра</button>
+                    <button class="table-head text-center" style="width: 70px;cursor:default">Жирн.,%</button>
                 </th>
                 <th>
-                    <button class="table-head" style="width: 100px;cursor:default">в т.ч.в/с</button>
+                    <button class="table-head text-center" style="width: 70px;cursor:default">Белок,%</button>
                 </th>
-                <th>
-                    <button class="table-head" style="width: 100px;cursor:default">в т.ч.1с</button>
-                </th>
-                <th>
-                    <button class="table-head" style="width: 100px;cursor:default">Жирн.,%</button>
-                </th>
-                <th>
-                    <button class="table-head" style="width: 100px;cursor:default">Белок,%</button>
-                </th>
-                <th>
-                </th>
+                <th></th>
             </tr>
             </thead>
 
@@ -74,13 +74,14 @@
             <tr>
                 <td class="{% if 'datetime' in srt %}sorted{% endif %}"><a class="block-link" style="color: #198754;" href="{% url 'milking:milking_edit' d_o.id %}">{{d_o.datetime}}</a></td>
                 <td class="{% if 'staff_id' in srt %}sorted{% endif %}">{{d_o.staff_id}}</td>
-                <td class="{% if 'milk_amount_total' in srt %}sorted{% endif %}">{{d_o.milk_amount_total}}</td>
-                <td class="{% if 'cows_milked' in srt %}sorted{% endif %}">{{d_o.cows_milked}}</td>
-                <td>{{d_o.milk_amount_e}}</td>
-                <td>{{d_o.milk_amount_v}}</td>
-                <td>{{d_o.milk_amount_1}}</td>
-                <td>{{d_o.milk_fat_per}}</td>
-                <td>{{d_o.milk_prot_per}}</td>
+                <td class="text-end{% if 'milk_amount_total' in srt %} sorted{% endif %}">{{d_o.milk_amount_total}}</td>
+                <td class="text-end{% if 'cows_milked' in srt %} sorted{% endif %}">{{d_o.cows_milked}}</td>
+                <td class="text-end">{{d_o.milk_amount_e}}</td>
+                <td class="text-end">{{d_o.milk_amount_v}}</td>
+                <td class="text-end">{{d_o.milk_amount_1}}</td>
+                <td></td>
+                <td class="text-center">{{d_o.milk_fat_per}}</td>
+                <td class="text-center">{{d_o.milk_prot_per}}</td>
                 <td><a class="block-link text-center" style="color: #198754;" href="{% url 'milking:milking_delete' d_o.id %}">[Х]</a></td>
             </tr>
             {% endfor %}
